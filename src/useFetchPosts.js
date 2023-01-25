@@ -12,19 +12,19 @@ const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.ty
 function reducer(state, action){
     switch (action.type) {
         case ACTIONS.MAKE_REQUEST:
-            return { loading: true, jobs: []}
+            return { loading: true, posts: []}
         case ACTIONS.GET_DATA:
             console.log(action.payload)
-            return { ...state, loading: false, jobs: action.payload.jobs}
+            return { ...state, loading: false, posts: action.payload.jobs}
         case ACTIONS.ERROR:
-            return { ...state, loading: false, jobs: action.payload.error, jobs: []}
+            return { ...state, loading: false, posts: action.payload.error, posts: []}
         default:
             return state
     }
 }
 
 export default function useFetchJobs(params, page) {
-    const [state, dispatch] = useReducer(reducer, {jobs: [], loading: true})
+    const [state, dispatch] = useReducer(reducer, {posts: [], loading: true})
 
     useEffect(()=> {
         const cancelToken = axios.CancelToken.source()
