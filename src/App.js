@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useFetchJobs from "./useFetchJobs";
 import { Container } from "react-bootstrap";
 
