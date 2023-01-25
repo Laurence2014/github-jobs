@@ -14,7 +14,7 @@ function reducer(state, action){
         case ACTIONS.MAKE_REQUEST:
             return { loading: true, posts: []}
         case ACTIONS.GET_DATA:
-            console.log(action.payload)
+           // console.log(action.payload)
             return { ...state, loading: false, posts: action.payload.jobs}
         case ACTIONS.ERROR:
             return { ...state, loading: false, posts: action.payload.error, posts: []}
@@ -30,6 +30,7 @@ export default function useFetchJobs(params, page) {
         const cancelToken = axios.CancelToken.source()
         dispatch({ type: ACTIONS.MAKE_REQUEST })
         axios.get(BASE_URL, {
+            cancelToken: cancelToken.token,
             params: { markdown: true, page: page, ...params }
         }).then(res =>{
             dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data } })

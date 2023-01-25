@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Badge } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 export default function Post({ post }) {
   return (
@@ -8,10 +8,8 @@ export default function Post({ post }) {
             <div className='d-flex justify-content-between'>
                 <div>
                     <Card.Title>
-                    {post.title} - <span className='text-muted font-weight-light'>{post.company}</span>
+                    {post.title}
                     </Card.Title>
-                    <Badge variant="secondary" className='mr-2'>{post.type}</Badge>
-                    <Badge variant="secondary">{post.location}</Badge>
                 </div>
             </div>
         </Card.Body>
