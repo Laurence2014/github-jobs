@@ -7,13 +7,14 @@ const ACTIONS = {
     ERROR: 'error'
 }
 
-const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://web3devtest.netlify.app/'
+const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts'
 
 function reducer(state, action){
     switch (action.type) {
         case ACTIONS.MAKE_REQUEST:
             return { loading: true, jobs: []}
         case ACTIONS.GET_DATA:
+            console.log(action.payload)
             return { ...state, loading: false, jobs: action.payload.jobs}
         case ACTIONS.ERROR:
             return { ...state, loading: false, jobs: action.payload.error, jobs: []}
